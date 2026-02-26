@@ -1,0 +1,34 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.itemEsquerda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.valor {
+  font-weight: 900;
+}
+
+/* variações */
+.itemCarnes {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.itemBebidas {
+  background: #fffbeb;
+  color: #d97706;
+}

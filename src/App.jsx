@@ -1,11 +1,6 @@
+import { FaBeer, FaGlassWhiskey, FaFireAlt } from "react-icons/fa";
+import { GiSausage, GiChickenOven, GiBarbecue } from "react-icons/gi";
 import { FiUsers, FiUser, FiRefreshCcw } from "react-icons/fi";
-import {
-  FaCalculator,
-  FaFire,
-  FaHotdog,
-  FaDrumstickBite,
-  FaGlassWhiskey,
-} from "react-icons/fa";
 import ItemResultado from "./components/ItemResultado";
 import "./styles/App.css";
 
@@ -13,37 +8,52 @@ export default function Churrascometro() {
   return (
     <div className="pagina">
       <div className="layout">
+
         <section className="card cardForm">
           <header className="cabecalho">
             <div className="cabecalhoIcone">
-              <FaFire />
+              <FaFireAlt />
             </div>
 
             <div className="cabecalhoTexto">
               <h1>Churrascômetro</h1>
-              <p>Calcule a quantidade ideal de carne e refrigerante.</p>
+              <p>Calcule a quantidade ideal para seu evento.</p>
             </div>
           </header>
 
           <div className="campo">
             <label>
+              <GiBarbecue /> Nome do churrasco
+            </label>
+            <input
+              type="text"
+              placeholder="Ex: Churrasco da Firma"
+            />
+          </div>
+
+          <div className="campo">
+            <label>
               <FiUsers /> Número de adultos
             </label>
-            <input type="number" min="0" value="2" readOnly />
+            <input
+              type="number"
+              min="0"
+              defaultValue="10"
+            />
           </div>
 
           <div className="campo">
             <label>
               <FiUser /> Número de crianças
             </label>
-            <input type="number" min="0" value="1" readOnly />
+            <input
+              type="number"
+              min="0"
+              defaultValue="8"
+            />
           </div>
 
           <div className="acoes">
-            <button className="botao botaoPrimario">
-              <FaCalculator /> Calcular
-            </button>
-
             <button className="botao botaoPerigo">
               <FiRefreshCcw /> Resetar
             </button>
@@ -52,52 +62,70 @@ export default function Churrascometro() {
 
         <section className="card">
           <header className="resultadoTopo">
-            <h2>Resultado para 3 pessoas</h2>
+            <h2>Churrasco da Firma</h2>
           </header>
 
+          <div className="infoEvento">
+            Quantidade de pessoas: <strong>18</strong>
+          </div>
+
+          {/* CARNES */}
           <div className="bloco">
             <div className="blocoTitulo">
-              <FaFire /> Carnes
+              <FaFireAlt /> Carnes
             </div>
 
             <ItemResultado
-              icone={<FaFire />}
-              nome="Carne"
-              valor="0.600 kg"
+              icone={<FaFireAlt />}
+              nome="Carne Vermelha"
+              valor="2.600 kg"
               tipo="itemCarnes"
             />
 
             <ItemResultado
-              icone={<FaHotdog />}
+              icone={<GiSausage />}
               nome="Linguiça"
-              valor="0.600 kg"
+              valor="1.300 kg"
               tipo="itemCarnes"
             />
 
             <ItemResultado
-              icone={<FaDrumstickBite />}
+              icone={<GiChickenOven />}
               nome="Frango"
-              valor="0.600 kg"
+              valor="1.300 kg"
               tipo="itemCarnes"
             />
 
             <div className="totalSecundario">
-              Total: <strong>1.800 kg</strong>
+              Total: <strong>5.200 kg</strong>
             </div>
           </div>
 
+          {/* BEBIDAS */}
           <div className="bloco">
             <div className="blocoTitulo">
-              <FaGlassWhiskey /> Bebidas
+              <FaBeer /> Bebidas
             </div>
 
             <ItemResultado
               icone={<FaGlassWhiskey />}
               nome="Refrigerante"
-              valor="1.5 L"
+              valor="2.6 L"
               tipo="itemBebidas"
             />
+
+            <ItemResultado
+              icone={<FaBeer />}
+              nome="Cerveja"
+              valor="5.2 L"
+              tipo="itemBebidas"
+            />
+
+            <div className="totalSecundario">
+              Total: <strong>7.8 L</strong>
+            </div>
           </div>
+
         </section>
       </div>
     </div>
